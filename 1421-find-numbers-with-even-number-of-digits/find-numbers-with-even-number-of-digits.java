@@ -1,14 +1,18 @@
 class Solution {
     public int findNumbers(int[] nums) {
-      
-        int count=0;
-        for(int i=0;i<nums.length;i++){
-            String s=String.valueOf(nums[i]);
-            if(s.length()%2==0){
-                count++;
-            }
-
+      int count=0;
+      for(int num:nums){
+        if(even(num)){
+            count++;
         }
-        return count;
+      }
+      return count;
     }
+    boolean even(int num){
+        int noofdigits=digits(num);
+        return noofdigits%2==0;
+      }
+      int digits(int num){
+        return (int)(Math.log10(num)+1);
+      }
 }
