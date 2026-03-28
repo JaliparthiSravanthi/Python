@@ -18,6 +18,6 @@ class Solution {
      for(int i=0;i<n;i++){
         arr[i]=a[i];
      }
-     System.out.println(a);
+     System.out.println(Arrays.toString(a));
     }
 }
