@@ -6,7 +6,7 @@ class Solution(object):
         sum+=nums[i];
         if sum%k in d:
             if((i-d[sum%k])>=2):
-               return True
+                 return True
         else:
             d[sum%k]=i
      return False
