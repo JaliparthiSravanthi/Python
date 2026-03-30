@@ -8,8 +8,7 @@ class Solution(object):
                 cset.remove(s[l])
                 l+=1
             cset.add(s[i])
-            if(i-l+1>mlen):
-                mlen=i-l+1
+            mlen=max(mlen,i-l+1)
         return mlen
             
                 
