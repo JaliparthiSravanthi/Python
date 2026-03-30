@@ -2,7 +2,6 @@ class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
        int sum=0;
        int c=0;
-       float avg=0;
        for(int i=0;i<k;i++){
         sum+=arr[i];
        } 
