@@ -6,13 +6,11 @@ class Solution {
        for(int i=0;i<k;i++){
         sum+=arr[i];
        } 
-       avg=(float)sum/k;
-        if(avg>=threshold)
+        if(sum/k>=threshold)
            c++;
        for(int j=k;j<arr.length;j++){
         sum=sum-arr[j-k]+arr[j];
-        avg=(float)sum/k;
-        if(avg>=threshold)
+        if(sum/k>=threshold)
            c++;
        }
       return c; 
