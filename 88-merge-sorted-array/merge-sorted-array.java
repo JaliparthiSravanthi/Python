@@ -4,13 +4,13 @@ class Solution {
           nums1[m+i]=nums2[i];
         }
        for(int i = 1; i < m + n; i++){
-            int j = i;
-
-            while(j > 0 && nums1[j] < nums1[j-1]){
-                int temp = nums1[j];
-                nums1[j] = nums1[j-1];
-                nums1[j-1] = temp;
-                j--;
+            for(int k=i;k>0;k--){
+                if(nums1[k]<nums1[k-1]){
+                int temp = nums1[k-1];
+                nums1[k-1] = nums1[k];
+                nums1[k] = temp;}
+                else break;
+                
             }
         }
         System.out.println(Arrays.toString(nums1));
