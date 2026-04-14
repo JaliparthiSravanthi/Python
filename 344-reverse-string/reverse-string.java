@@ -9,6 +9,5 @@ class Solution {
        l++;
        r--;
       } 
-      System.out.println(Arrays.toString(s)) ;
     }
 }
