@@ -1,18 +1,20 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        for(int i=0;i<n;i++){
-          nums1[m+i]=nums2[i];
+        int j=m;
+       for(int i=0;i<nums2.length;i++){
+        nums1[j]=nums2[i];
+        j++;
+       } 
+       for(int k=0;k<nums1.length;k++){
+       for(int l=k+1;l<nums1.length;l++){
+        if(nums1[k]>nums1[l]){
+            int temp=nums1[k];
+            nums1[k]=nums1[l];
+            nums1[l]=temp;
         }
-       for(int i = 1; i < m + n; i++){
-            for(int k=i;k>0;k--){
-                if(nums1[k]<nums1[k-1]){
-                int temp = nums1[k-1];
-                nums1[k-1] = nums1[k];
-                nums1[k] = temp;}
-                else break;
-                
-            }
-        }
-        System.out.println(Arrays.toString(nums1));
+        
+       }
+       }
+       System.out.println(nums1);
     }
 }
