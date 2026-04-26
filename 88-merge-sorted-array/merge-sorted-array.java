@@ -1,20 +1,35 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int j=m;
-       for(int i=0;i<nums2.length;i++){
-        nums1[j]=nums2[i];
-        j++;
-       } 
-       for(int k=0;k<nums1.length;k++){
-       for(int l=k+1;l<nums1.length;l++){
-        if(nums1[k]>nums1[l]){
-            int temp=nums1[k];
-            nums1[k]=nums1[l];
-            nums1[l]=temp;
+       int[] a=new int[n+m];
+       int i=0;
+       int j=0;
+       int k=0;
+       while(i<m && j<n){
+        if(nums1[i]<=nums2[j]){
+            a[k]=nums1[i];
+            i++;
+            k++;
         }
-        
+        else{
+            a[k]=nums2[j];
+            j++;
+            k++;
+        }    
        }
+       while(i<m){
+        a[k]=nums1[i];
+        i++;
+        k++;
        }
-       System.out.println(nums1);
+       while(j<n){
+        a[k]=nums2[j];
+        j++;
+        k++;
+       }
+       for(int x = 0; x < m+n; x++){
+    nums1[x] = a[x];
+}
+
+    System.out.println(nums1);
     }
 }
