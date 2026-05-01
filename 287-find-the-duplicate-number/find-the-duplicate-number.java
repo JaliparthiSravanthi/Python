@@ -9,9 +9,14 @@ class Solution {
                 nums[corr]=temp;
             }
             else{ 
-                if (i != corr) return nums[i];
+            
                 i++;
                 }
+        }
+        for(int j=0;j<nums.length;j++){
+            if(j!=nums[j]-1){
+                return nums[j];
+            }
         }
        
     return -1;
