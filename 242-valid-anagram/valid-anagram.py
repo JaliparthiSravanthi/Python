@@ -14,9 +14,8 @@ class Solution(object):
                 d1[j]+=1
             else:
                 d1[j]=1
-        for key in s:
-            if key not in t:
-                return False
-            if d[key]!=d1[key]:
+        for key in d:
+           
+            if d[key]!=d1.get(key,0):
                 return False
         return True
