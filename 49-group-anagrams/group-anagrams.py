@@ -1,15 +1,13 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        l=[]
-        for i in strs:
-            l.append("".join(sorted(i)))
+      l=[]
+      for i in strs:
+        l.append("".join(sorted(i)))
         d={}
-        for i in range(len(l)):
-            k=l[i]
-            if k in d:
-                d[k].append(strs[i])
-            else:
-                d[k]=[strs[i]]
-        return list(d.values())
-
-        
+      for k in range(len(l)):
+        key=l[k]
+        if key in d:
+            d[key].append(strs[k])
+        else:
+            d[key]=[strs[k]]
+      return list(d.values())
