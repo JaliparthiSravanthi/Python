@@ -1,21 +1,15 @@
 class Solution(object):
     def isAnagram(self, s, t):
-        d={}
-        d1={}
-        if(len(s)!=len(t)):
+       d={}
+       if(len(s)!=len(t)):
+        return False
+       for i in s:
+        d[i]=d.get(i,0)+1
+       for j in range(len(t)):
+        if(t[j] in d):
+            d[t[j]]-=1
+            if(d[t[j]]==0):
+                del d[t[j]]
+        else:
             return False
-        for i in s:
-            if i in d:
-                d[i]+=1
-            else:
-                d[i]=1
-        for j in t:
-            if j in d1:
-                d1[j]+=1
-            else:
-                d1[j]=1
-        for key in d:
-           
-            if d[key]!=d1.get(key,0):
-                return False
-        return True
+       return True
