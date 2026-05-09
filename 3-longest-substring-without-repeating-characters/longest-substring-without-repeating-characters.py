@@ -1,7 +1,7 @@
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
       l=0
-      mlen=-1
+      mlen=0
       d={}
       k=0
       for i in range(len(s)):
@@ -12,9 +12,8 @@ class Solution(object):
             l+=1
         d[s[i]]=d.get(s[i],0)+1
         mlen=max(mlen,i-l+1)
-      if(mlen>-1):
-        return mlen
-      return 0
+      
+      return mlen
     
 
             
