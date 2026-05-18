@@ -8,7 +8,7 @@ class Solution {
     } 
     for(int j=0;j<n;j++){
         if(j==0 &&(nums[n-1]-nums[j])==0) return 0;
-        else if(j==n-1 && nums[j-1]==0 ) return j;
+        //else if(j==n-1 && nums[j-1]==0 ) return j;
         else if(j!=0 && nums[j]==nums[n-1]-nums[j-1]) return j;
     }
     return -1;
