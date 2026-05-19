@@ -3,14 +3,14 @@ class Solution(object):
      d={0:-1}
      sum=0
      for i in range(len(nums)):
-        sum+=nums[i];
+        sum+=nums[i]
         if sum%k in d:
-            if((i-d[sum%k])>=2):
-                 return True
+            if(i-d[sum%k]>=2):
+                return True
         else:
             d[sum%k]=i
      return False
+
         
 
-
-
+     
