@@ -9,7 +9,7 @@ class Solution {
         }
         int c=0;
         for(int j=0;j<n-1;j++){
-            if((long)prefix[j]>=(long)(prefix[n-1]-prefix[j])) c++;
+            if(prefix[j]>=(prefix[n-1]-prefix[j])) c++;
         }
     return c;
     }
