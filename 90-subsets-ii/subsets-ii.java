@@ -1,17 +1,18 @@
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
-       HashSet<List<Integer>> set=new HashSet<>();
-       
-       int a=nums.length;
-       int n=1<<a;
-       for(int i=0;i<n;i++){
-        List<Integer> sub=new ArrayList<>();
-        for(int j=0;j<a;j++){
-            if((i&(1<<j))!=0) sub.add(nums[j]);
+      HashSet<List<Integer>> set=new HashSet<>();
+      Arrays.sort(nums);
+      helper(0,nums,new ArrayList<>(),set);
+      return new ArrayList<>(set);
+    }
+    public static void helper(int i,int[] nums,List<Integer> ds,HashSet<List<Integer>> set){
+        if(i==nums.length){
+            set.add(new ArrayList<>(ds));
+            return ;
         }
-        set.add(sub);
-       } 
-    return new ArrayList<>(set);
+        ds.add(nums[i]);
+        helper(i+1,nums,ds,set);
+        ds.remove(ds.size()-1);
+        helper(i+1,nums,ds,set);
     }
 }
