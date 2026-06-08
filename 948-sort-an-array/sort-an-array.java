@@ -1,44 +1,41 @@
 class Solution {
+    static Random rand = new Random();
     public int[] sortArray(int[] nums) {
         int n=nums.length;
-       Mergesort(nums,0,n-1);
-       return nums; 
+      quickSort(nums,0,n-1);
+      return nums;
     }
-    public static void Mergesort(int[] nums,int low,int high){
+    public static void quickSort(int[] nums,int low,int high){
         if(low>=high) return;
-        int mid=low+(high-low)/2;
-        Mergesort(nums,low,mid);
-        Mergesort(nums,mid+1,high);
-        int[] temp=new int[high-low+1];
-        Merge(nums,temp,low,mid,high);
+        int randomindex=low+ rand.nextInt(high-low+1);
+        int s=nums[low];
+        nums[low]=nums[randomindex];
+        nums[randomindex]=s;
+        int index=f(nums,low,high);
+        quickSort(nums,low,index-1);
+        quickSort(nums,index+1,high);
+    
     }
-    public static void Merge(int[] a,int[] temp,int low,int mid,int high){
-        int left=low;
-        int right=mid+1;
-        int k=0;
-        while(left<=mid && right<=high){
-            if(a[left]<=a[right]){
-                temp[k]=a[left];
-                left++;
+    public static int f(int[] nums,int low,int high){
+           int pivot=low;
+           int i=low;
+           int j=high;
+           while(i<j){
+            while(i<=high && nums[i]<=nums[pivot]){
+                i++;
             }
-            else{
-                temp[k]=a[right];
-                right++;
+            while(j>=low && nums[j]>nums[pivot]){
+                j--;
             }
-            k++;
+            if(i<j){
+            int temp=nums[i];
+            nums[i]=nums[j];
+            nums[j]=temp;}
         }
-        while(left<=mid){
-            temp[k]=a[left];
-            left++;
-            k++;
-        }
-        while(right<=high){
-            temp[k]=(a[right]);
-            right++;
-            k++;
-        }
-        for(int i=low;i<=high;i++){
-        a[i]=temp[i-low];
-    }
+        int t=nums[pivot];
+        nums[pivot]=nums[j];
+        nums[j]=t;
+    return j;
     }
 }
+    
